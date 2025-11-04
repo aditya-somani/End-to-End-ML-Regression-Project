@@ -1,0 +1,42 @@
+"""
+Load & time-split the raw dataset.
+
+- Production default writes to data/raw/
+- Tests can pass a temp `output_dir` so nothing in data/ is touched.
+"""
+
+import pandas as pd
+from pathlib import Path
+
+DATA_DIR = Path('data/raw')
+
+def load_and_split_data(
+    raw_path: str = 'data/raw/untouched_raw_original.csv',
+    output_dir: Path | str = DATA_DIR,
+) -> None:
+    """Load raw dataset, split into train/eval/holdout by date, and save to output_dir."""
+    df = pd.read_csv(raw_path)
+
+    # Ensure datetime + sort
+    df['date'] = pd.to_datetime(df['date'])
+    df = df.sort_values(by='date')
+
+    # Cutoffs
+    cutoff_date_eval = pd.Timestamp('2020-01-01')
+    cutoff_date_holdout = pd.Timestamp('2022-01-01')
+
+    # Split
+    train_df = df[df['date'] < cutoff_date_eval]
+    eval_df = df[(df['date'] >= cutoff_date_eval) & (df['date'] < cutoff_date_holdout)]
+    holdout_df = df[df['date'] >= cutoff_date_holdout]
+
+    # save
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    train_df.to_csv(output_dir / 'train.csv', index=False)
+    eval_df.to_csv(output_dir / 'eval.csv', index=False)
+    holdout_df.to_csv(output_dir / 'holdout.csv', index=False)
+
+if __name__=="__main__":
+    load_and_split_data()
+    
