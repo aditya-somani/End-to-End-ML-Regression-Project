@@ -46,7 +46,7 @@ def frequency_encode(
     
     freq_map = train[col].value_counts()
     train[f'{col}_freq'] = train[col].map(freq_map)
-    eval[f'{col}_freq'] = eval[col].map(freq_map)
+    eval[f'{col}_freq'] = eval[col].map(freq_map).fillna(0) # unseen categories get 0
     return train, eval, freq_map
 
 #Uses target encoding (replace category with average of target variable).

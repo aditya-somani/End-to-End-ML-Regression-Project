@@ -13,7 +13,7 @@ DATA_DIR = Path('data/raw')
 def load_and_split_data(
     raw_path: str = 'data/raw/untouched_raw_original.csv',
     output_dir: Path | str = DATA_DIR,
-) -> None:
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Load raw dataset, split into train/eval/holdout by date, and save to output_dir."""
     df = pd.read_csv(raw_path)
 
@@ -36,6 +36,11 @@ def load_and_split_data(
     train_df.to_csv(output_dir / 'train.csv', index=False)
     eval_df.to_csv(output_dir / 'eval.csv', index=False)
     holdout_df.to_csv(output_dir / 'holdout.csv', index=False)
+
+    print(f"Data split completed (saved to {output_dir}).")
+    print(f"Train: {train_df.shape}, Eval: {eval_df.shape}, Holdout: {holdout_df.shape}")
+
+    return train_df, eval_df, holdout_df
 
 if __name__=="__main__":
     load_and_split_data()
