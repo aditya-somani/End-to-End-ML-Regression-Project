@@ -139,7 +139,7 @@ def preprocess_splits(
     df = drop_duplicates(df) # drop duplicate rows
     df = remove_outliers(df) # remove extreme outliers
 
-    out_path = processed_dir / f'cleaned_{splits}.csv' # construct path to save the processed split file
+    out_path = processed_dir / f"cleaning_{splits}.csv" # construct path to save the processed split file
     df.to_csv(out_path, index=False) # save the processed DataFrame to CSV
     print(f"Saved cleaned {splits} split to {out_path}")
 
