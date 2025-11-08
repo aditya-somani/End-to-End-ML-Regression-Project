@@ -5,7 +5,9 @@ description = "End to End ML project for building and deploying regression model
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "boto3>=1.40.69",
     "category-encoders>=2.8.1",
+    "dotenv>=0.9.9",
     "evidently>=0.7.15",
     "fastapi>=0.120.4",
     "great-expectations>=1.8.1",
