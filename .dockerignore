@@ -1,0 +1,193 @@
+# This is AI generated dockerignore file for the Housing Regression MLE project.
+# Not me :)
+
+# ==========================================
+# Version Control
+# ==========================================
+.git/
+.gitignore
+.gitattributes
+.github/
+
+# ==========================================
+# Python-generated files
+# ==========================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+*.egg-info/
+*.egg
+build/
+dist/
+wheels/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# ==========================================
+# Virtual Environments
+# ==========================================
+.venv/
+venv/
+ENV/
+env/
+.env/
+*.env
+.env.local
+.env.*.local
+
+# ==========================================
+# Development & Testing Files
+# ==========================================
+# Jupyter Notebooks (not needed in production)
+notebooks/
+*.ipynb
+.ipynb_checkpoints/
+.jupyter/
+
+# Test files and directories
+test/
+tests/
+*_test.py
+test_*.py
+*_tests.py
+.pytest_cache/
+.coverage
+coverage.xml
+*.cover
+
+# ==========================================
+# Data Files (should be mounted as volumes or fetched separately)
+# ==========================================
+data/
+*.csv
+*.parquet
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.json
+*.xml
+*.xlsx
+*.xls
+
+# ==========================================
+# Model Files (should be loaded from external storage)
+# ==========================================
+models/
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.onnx
+*.pb
+*.tflite
+*.mlmodel
+
+# ==========================================
+# MLflow Experiment Tracking (not needed in production image)
+# ==========================================
+mlruns/
+.mlflow/
+
+# ==========================================
+# IDE & Editor Files
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+
+# ==========================================
+# Documentation (optional - exclude if not needed in container)
+# ==========================================
+README.md
+*.md
+docs/
+documentation/
+
+# ==========================================
+# Logs & Temporary Files
+# ==========================================
+logs/
+*.log
+*.log.*
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.backup
+
+# ==========================================
+# Docker Files (exclude Dockerfile itself is optional, but .dockerignore should be ignored)
+# ==========================================
+.dockerignore
+docker-compose.yml
+docker-compose.yaml
+docker-compose.*.yml
+docker-compose.*.yaml
+.docker/
+
+# ==========================================
+# CI/CD Files
+# ==========================================
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+Jenkinsfile
+
+# ==========================================
+# OS Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# Cache & Temporary Directories
+# ==========================================
+.cache/
+*.cache
+.tmp/
+temp/
+tmp/
+
+# ==========================================
+# Lock files (uv.lock is needed, but lock.json files are not)
+# ==========================================
+*.lock.json
+
+# ==========================================
+# Other Development Files
+# ==========================================
+*.pid
+*.seed
+*.pid.lock
+.npm
+.yarn/
+node_modules/
+
