@@ -11,7 +11,6 @@ Inference pipeline for Housing Regression MLE.
 
 import argparse
 from pathlib import Path
-from tkinter import N
 import pandas as pd
 from joblib import load
 
