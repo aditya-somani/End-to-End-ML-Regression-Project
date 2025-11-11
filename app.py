@@ -14,6 +14,11 @@ API_URL = os.environ.get('API_URL', "http://127.0.0.1:8000/predict")
 S3_BUCKET = os.getenv('S3_BUCKET', 'housing-regression-data-aditya-somani-ml-project')
 REGION = os.getenv('AWS_REGION', 'us-east-1')
 
+# Ensure API_URL ends with /predict
+API_URL = API_URL.rstrip('/') # remove the trailing slash from the API_URL
+if not API_URL.endswith('/predict'):
+    API_URL += '/predict' # add the /predict suffix if it's not there
+
 # Intialize the s3 client
 s3 = boto3.client('s3', region_name=REGION)
 
